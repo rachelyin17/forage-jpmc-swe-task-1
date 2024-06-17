@@ -1,0 +1,244 @@
+From 879221fec2b863d37d5b493f02a530a8098ef6ef Mon Sep 17 00:00:00 2001
+From: Joe Ferrer <joe@theforage.com>
+Date: Wed, 1 Mar 2023 00:11:51 +1100
+Subject: [PATCH 1/2] Re-add sample unit test
+
+---
+ client_test.py | 25 +++++++++++++++++++++++++
+ 1 file changed, 25 insertions(+)
+ create mode 100644 client_test.py
+
+diff --git a/client_test.py b/client_test.py
+new file mode 100644
+index 0000000..af2bf26
+--- /dev/null
++++ b/client_test.py
+@@ -0,0 +1,25 @@
++import unittest
++from client3 import getDataPoint
++
++class ClientTest(unittest.TestCase):
++  def test_getDataPoint_calculatePrice(self):
++    quotes = [
++      {'top_ask': {'price': 121.2, 'size': 36}, 'timestamp': '2019-02-11 22:06:30.572453', 'top_bid': {'price': 120.48, 'size': 109}, 'id': '0.109974697771', 'stock': 'ABC'},
++      {'top_ask': {'price': 121.68, 'size': 4}, 'timestamp': '2019-02-11 22:06:30.572453', 'top_bid': {'price': 117.87, 'size': 81}, 'id': '0.109974697771', 'stock': 'DEF'}
++    ]
++    """ ------------ Add the assertion below ------------ """
++
++  def test_getDataPoint_calculatePriceBidGreaterThanAsk(self):
++    quotes = [
++      {'top_ask': {'price': 119.2, 'size': 36}, 'timestamp': '2019-02-11 22:06:30.572453', 'top_bid': {'price': 120.48, 'size': 109}, 'id': '0.109974697771', 'stock': 'ABC'},
++      {'top_ask': {'price': 121.68, 'size': 4}, 'timestamp': '2019-02-11 22:06:30.572453', 'top_bid': {'price': 117.87, 'size': 81}, 'id': '0.109974697771', 'stock': 'DEF'}
++    ]
++    """ ------------ Add the assertion below ------------ """
++
++
++  """ ------------ Add more unit tests ------------ """
++
++
++
++if __name__ == '__main__':
++    unittest.main()
+-- 
+2.43.0.windows.1
+
+
+From ed119772f321c469ee8ad908397de668bbfcb6dc Mon Sep 17 00:00:00 2001
+From: rachelyin17 <rachelyin17@gmail.com>
+Date: Mon, 17 Jun 2024 13:22:49 +0700
+Subject: [PATCH 2/2] done
+
+---
+ .idea/.gitignore                               |   3 +++
+ .idea/forage-jpmc-swe-task-1.iml               |  10 ++++++++++
+ .idea/inspectionProfiles/profiles_settings.xml |   6 ++++++
+ .idea/misc.xml                                 |   4 ++++
+ .idea/modules.xml                              |   8 ++++++++
+ .idea/vcs.xml                                  |   6 ++++++
+ __pycache__/client3.cpython-311.pyc            | Bin 0 -> 1901 bytes
+ __pycache__/client_test.cpython-311.pyc        | Bin 0 -> 1513 bytes
+ client3.py                                     |   9 ++++++---
+ 9 files changed, 43 insertions(+), 3 deletions(-)
+ create mode 100644 .idea/.gitignore
+ create mode 100644 .idea/forage-jpmc-swe-task-1.iml
+ create mode 100644 .idea/inspectionProfiles/profiles_settings.xml
+ create mode 100644 .idea/misc.xml
+ create mode 100644 .idea/modules.xml
+ create mode 100644 .idea/vcs.xml
+ create mode 100644 __pycache__/client3.cpython-311.pyc
+ create mode 100644 __pycache__/client_test.cpython-311.pyc
+
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+new file mode 100644
+index 0000000..26d3352
+--- /dev/null
++++ b/.idea/.gitignore
+@@ -0,0 +1,3 @@
++# Default ignored files
++/shelf/
++/workspace.xml
+diff --git a/.idea/forage-jpmc-swe-task-1.iml b/.idea/forage-jpmc-swe-task-1.iml
+new file mode 100644
+index 0000000..74d515a
+--- /dev/null
++++ b/.idea/forage-jpmc-swe-task-1.iml
+@@ -0,0 +1,10 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="PYTHON_MODULE" version="4">
++  <component name="NewModuleRootManager">
++    <content url="file://$MODULE_DIR$">
++      <excludeFolder url="file://$MODULE_DIR$/venv" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+diff --git a/.idea/inspectionProfiles/profiles_settings.xml b/.idea/inspectionProfiles/profiles_settings.xml
+new file mode 100644
+index 0000000..105ce2d
+--- /dev/null
++++ b/.idea/inspectionProfiles/profiles_settings.xml
+@@ -0,0 +1,6 @@
++<component name="InspectionProjectProfileManager">
++  <settings>
++    <option name="USE_PROJECT_PROFILE" value="false" />
++    <version value="1.0" />
++  </settings>
++</component>
+\ No newline at end of file
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+new file mode 100644
+index 0000000..0823e4d
+--- /dev/null
++++ b/.idea/misc.xml
+@@ -0,0 +1,4 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.11 (forage-jpmc-swe-task-1)" project-jdk-type="Python SDK" />
++</project>
+\ No newline at end of file
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+new file mode 100644
+index 0000000..973696f
+--- /dev/null
++++ b/.idea/modules.xml
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/.idea/forage-jpmc-swe-task-1.iml" filepath="$PROJECT_DIR$/.idea/forage-jpmc-swe-task-1.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+index 0000000..35eb1dd
+--- /dev/null
++++ b/.idea/vcs.xml
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+diff --git a/__pycache__/client3.cpython-311.pyc b/__pycache__/client3.cpython-311.pyc
+new file mode 100644
+index 0000000000000000000000000000000000000000..e8bf4049cb8846b36d1097dbaca4973bd5dd2ddb
+GIT binary patch
+literal 1901
+zcmaJ>O-vg{6rS<^*v2+s!cPf4Y$DO(H2ek8P(&I5HdPKF$e+T>jkS0Ovc!0u-K8il
+zNIvvnBo3|=DVCZ_94eZK9#B;^9I2F3PhR9U)<~6*ddkgGddjJ9))+&iW@qN@doypo
+zd4DrM1p*BSzTH3d#h<+h{lkRX7dU3#{)G{Gid3ZHB$BItEMrG@$(-tvd6km|mH!sW
+zqACD&6OSrBbg})$A1*|^FdB%k130@ds^3{Dg1&kw`#=vZ`)eA6TdvuFwi|1+r~icC
+zZaOX3c)-ES^^;(Fx3+}No_ki>Zaz^v#q4}wzZ~=;4aqGe2p;sy=ip?KoI8se;}Mcu
+z<u<up?jRkcg|v<VB4~c3x=HKzSoM%LpkC4rw1IR0_5I*Ii-FPBfV0C7)J<B{K<9~t
+zAT`#d9f<p`6MLqR5z%`d1JZ9Qz6II5g~Cm5n9@w<!UM}nkM{Q`^@Ngqpqtj{$iT=z
+z|D#o6Jie}}*S^`%{)KoZPGSnXz$?VTc>4^<Q{+YKfLXU=16!xGVa-)vQ@J{S*3S*s
+zd%O6$<_C6h>#lV!19qrF#)r@bzmD0=I={$+mty9sG;8SUYJx~gGAUUPh?F8kC93qb
+zl3XRGWa-ipNfAS_Ktoa$OG)cm%95yHT6*Fkbz6EmzM!d8NE=#$RAt3{_=W{KjH$4g
+z)D<f%P~p+4ZV`jUhI(N`ysGa7-70H9LXar{k=XYxGC3N%V-mxRO^@G>Mf9~4AgN|-
+zQ8$z&5?fBMB#!xB#`l_Qq}Kwp-oaQRsgaa5)R%rt{Y%7(fYr0iYJ=Ssi5(*Y$)Y2E
+ztn3fwKiQheM*nVZ%ag*5Qv1i-Yo+#nyLq70JdnNdKhxzvd!f?~T-+YF{oUDU+1H#8
+z7v`S}MPF}`?|lpCC~;D1ATZu331&gHB-SxY2qXb#E=pe#OM)0{x}+~kPGsVWq@>hi
+zenEPH!Y=AQUa2t)Cc~8^gS`gS1Fqg=7)C3ImtdIe4XC>5Ysp{Tyk6wb8*Gkx;_($l
+zOU2_E_Z-WMDrLNqVo5!anbC}RS%N^0W;~ax=a0U_;f%+@mby*KjZaKcE)tyzcT#@Y
+z)KgS6z*c>QHm(}Uq_)s!5V#<wMa8O2g}FP?oAVUUI2my4V<x1O6%vnAUW3A*0$?l=
+zisMvp5>4GT6gQygX#&SU?pG9x@&-{<DmoQqQqhTuX|M;|sV@WKiVXHzIyL2#CL}+|
+zCYbk5xZZijR-o{c<O}0dm}586OaZNM7~{$%g#B3`Yh@J3I<1V_inU%5k@s>|fS=&W
+z;)>|TeHC;<S~=WRK_{dU@%~)qkn1dRokxLS?smRA-(A4p^*rg>yuWq7f*OQLT%|c&
+z4tC{RpPVmDJ)3zQx^fu0vN!y4?3b~Fz=8NG@O#s%CVObMG&F06=1QTt*P*+Ip}ThI
+zUMY0X4$hZ?^EvUzGg%Iv%ZcSSW`kD+WJYt*^5C_-&_1yTBc;KJ?eEJ)^Pd;A=WXTC
+zh1^trcyk)ALN1z%?ys_Tps`k*laG5$DOP*Sg6&U~{E4E|k34~#kXtT{6h^kEo)7;x
+oz4zIE_pjINuJKaWxZOBzdnQVriK5dhorpgVF{to$hn;-<2Y6!H!T<mO
+
+literal 0
+HcmV?d00001
+
+diff --git a/__pycache__/client_test.cpython-311.pyc b/__pycache__/client_test.cpython-311.pyc
+new file mode 100644
+index 0000000000000000000000000000000000000000..140af5d06c32d66464f4a920861540cd314f29b0
+GIT binary patch
+literal 1513
+zcmcIk&1(}u6rY{lO=3;cRzz(r8jFHK5|UJnEm|5=YY(<6)`KB+Su@+XW<TQY#$rH-
+zP{E^~MDVOFf@l8-g&-cvoD>hG=phnMJ^9`yjUPP}56<lT<~Q@^y?Hb5&A#gG?IBQ}
+zf3O!<BtpL6V5`U-(z1X&BaAS?AbISmA(%8z1wzS1!o+35B#qn=w-jFjd)*!7B~4~>
+znWEGgpafP1x+{Ua-Wm`AcDUxZSYQKZ=VAg6mo#rm_0%i2Zh6J-S|CDa&>8~r4D99w
+zM)H&i%Oo!{3Meu08i`4~CuiuI<;`oZSKQJ<<sdZlvo!$#ClnZE;tR?oCbNLgf-J;#
+zy^vWC+uf0bS#L)YK}m@|fL&pizPZx-cTg_foZL7H=2j_}D~?{&xa8_JZF4A{OpV2p
+z>3Av?O{d3`r^iQ=iBp;M$y1~2haY{t`t}egnxMEDNhVUsv9Zj_(_@)TCdI|<`P{0^
+zgPvVcRJY7`dAbQFQO!zw?v~Ctg(kb6T`aGE15=O6U<~3()@MG~_P$wKnB2GuBQ8!|
+zm|jKKBv&&QdEjo<_B7YU*hHh7Gr94?bysuT!fbZFFl8@UhOIKUuxLAKNh{o`n8gl{
+zBagdFTHFJV;;BN>zhDK7d5Ow>9z~-39yz6`8pW!idfFAdl-h}3AxZ4C7!$Ge6rfH%
+z4If!aH})j(J9nc|xz{8lOQ$GwCE>zv-7H<e(QRsC7qmLKHaxPD-KL*wD|XEI-6dM^
+zC#m6UwygllVkA(XZia|F(U8uyz$x<IQ|jHqq=TvIgb;Qkgb{iXA_#p5{RsOI_9GlX
+z7(~GL;T%L52IxfFISibqcDnoXI=kp-5H@H2wrXYFa_#ItL~fh5@AnaOWdvX@Ci9S@
+zSgNTh3hz-A(`Hozd00{IR#l@daiXYzkE(qNRQ26=Ff)9>Tz8WI^=@raS)6E+E=0P_
+zpX(>$nFh`He)uNP6I0bKMTrG@sA}mR-VG17Q+w3G9|aH1!(2{<N8)dN4Cf@&`pdJ;
+z(AoA`CY(5|!Jm%n0yITI5Y|Xv-LGpT+W7NpO8vr_CfN>84tyLK`Hq4gzof^B6n<R$
+eAPzRf!8K{1KC?Xg@bdEIx?h_jk%mCvpYSIrtd2PV
+
+literal 0
+HcmV?d00001
+
+diff --git a/client3.py b/client3.py
+index 3fc09b7..186b8a2 100644
+--- a/client3.py
++++ b/client3.py
+@@ -35,14 +35,14 @@ def getDataPoint(quote):
+     stock = quote['stock']
+     bid_price = float(quote['top_bid']['price'])
+     ask_price = float(quote['top_ask']['price'])
+-    price = bid_price
++    price = (bid_price + ask_price)/2
+     return stock, bid_price, ask_price, price
+ 
+ 
+ def getRatio(price_a, price_b):
+     """ Get ratio of price_a and price_b """
+     """ ------------- Update this function ------------- """
+-    return 1
++    return price_a/price_b
+ 
+ 
+ # Main
+@@ -52,8 +52,11 @@ if __name__ == "__main__":
+         quotes = json.loads(urllib.request.urlopen(QUERY.format(random.random())).read())
+ 
+         """ ----------- Update to get the ratio --------------- """
++        prices = {}
+         for quote in quotes:
+             stock, bid_price, ask_price, price = getDataPoint(quote)
++            prices[stock] = price
+             print("Quoted %s at (bid:%s, ask:%s, price:%s)" % (stock, bid_price, ask_price, price))
+ 
+-        print("Ratio %s" % getRatio(price, price))
++        print("Ratio %s" % getRatio(prices["ABC"], prices["DEF"]))
++
+-- 
+2.43.0.windows.1
+
